@@ -8,25 +8,29 @@ public class EmployeeWageComputation {
     public static void main(String[] args) {
         int emphours=0;
         int empwage=0;
-        double empcheck=Math.floor(Math.random()*10)%3;
-        switch ((int) empcheck)
+        double totalempwage=0;
+
+        for (int i=1;i<=20;i++)
         {
-            case 0:
-                System.out.println("The Employee is Absent");
-                break;
+            double empcheck=Math.floor(Math.random()*10)%3;
 
-            case 1:
-                emphours=4;
-                empwage=WAGE_PER_HOUR*emphours;
-                System.out.println("Employee Daily wage =" + empwage);
-                break;
-
-            case 2:
+            if(empcheck==IS_PRESENT)
+            {
                 emphours=8;
-                empwage=WAGE_PER_HOUR*emphours;
-                System.out.println("Employee Daily wage =" + empwage);
-                break;
+            }
+            else if (empcheck==IS_PRESENT_PARTTIME)
+            {
+                emphours=4;
+            }
+            else
+            {
+                emphours=0;
+            }
+            empwage=WAGE_PER_HOUR*emphours;
+            totalempwage=totalempwage+empwage;
+
         }
+        System.out.println("Employee Monthly wage =" + totalempwage);
 
     }
 }
